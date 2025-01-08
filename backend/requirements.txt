@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+requests
+langchain_ollama
+pypdf
+pymilvus
+langchain
+langchain_community
+langchain_milvus
+langchain_ollama
+langchain_google_genai
+simsimd
