@@ -2,7 +2,7 @@
 
 
 ## STEPS TO RUN
-### STEPS 01:- Clone the repositorygit
+### STEPS 01:- Clone the repository
 
 ```bash
 git clone git@github.com:SUMITDHAKAD0/docker_ollama_fastapi.git
