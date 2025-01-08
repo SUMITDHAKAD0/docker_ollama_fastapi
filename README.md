@@ -1,4 +1,4 @@
-# Setuo Docker with Ollama and FastAPI
+# Setup Docker with Ollama and FastAPI
 
 
 ## STEPS TO RUN
