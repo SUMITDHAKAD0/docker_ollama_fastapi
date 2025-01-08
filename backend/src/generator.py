@@ -17,36 +17,36 @@ class ChatGenerator:
         pass
 
     def load_model(self):
-        # ollama_llm = ChatOllama(
-        #     model= 'llama3.2-vision',
-        #     base_url="http://localhost:11434",
-        #     temperature=0.7,
-        #     num_ctx = 1024, # size of the context window
-        #     num_predict = -2, # Maximum number of tokens to predict when generating text.
-        #     top_k=40,
-        #     top_p=0.9,  
-        # )
+        llm = ChatOllama(
+            model= 'llama3.2-vision',
+            base_url="http://localhost:11434",
+            temperature=0.7,
+            num_ctx = 1024, # size of the context window
+            num_predict = -2, # Maximum number of tokens to predict when generating text.
+            top_k=40,
+            top_p=0.9,  
+        )
 
-        # ollama_embedding = OllamaEmbeddings(
-        #     model="llama3.2-vision",
-        #     base_url="http://localhost:11434"
-        # )
-        # return ollama_llm, ollama_embedding
-        os.environ["GOOGLE_API_KEY"] = "Gemini-API-Key"
-        gemini_embeddings = GoogleGenerativeAIEmbeddings(
-                                model="models/text-embedding-004",
-                                task_type="retrieval_document"
-                            )
+        embeddings = OllamaEmbeddings(
+            model="llama3.2-vision",
+            base_url="http://localhost:11434"
+        )
 
-        gemini_llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", 
-                                    temperature=0.7,
-                                    max_tokens=512,
-                                    timeout=None,
-                                    max_retries=2,
-                                    top_k=90,
-                                    top_p=0.5
-                                )
-        return gemini_llm, gemini_embeddings
+        # os.environ["GOOGLE_API_KEY"] = "Gemini-API-Key"
+        # embeddings = GoogleGenerativeAIEmbeddings(
+        #                         model="models/text-embedding-004",
+        #                         task_type="retrieval_document"
+        #                     )
+
+        # llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", 
+        #                             temperature=0.7,
+        #                             max_tokens=512,
+        #                             timeout=None,
+        #                             max_retries=2,
+        #                             top_k=90,
+        #                             top_p=0.5
+        #                         )
+        return llm, embeddings
     
     def load_and_splite(self):
         loader = PyPDFLoader('data/B13 - Chapter II - Procedure  for proceeding Abroad.pdf')

@@ -175,24 +175,28 @@ services:
 #       minio:
 #         condition: service_healthy
 
-  # ollama:
-  #   image: ollama:latest
-  #   ports:
-  #     - 11435:11434
-  #   volumes:
-  #     - chatbot-vol:/ollama
-  #   networks:
-  #     - test-net
-  #   entrypoint: [ "/usr/bin/bash", "pull-llama3.sh" ]
-  #   restart: unless-stopped
+  ollama:
+    image: ollama:latest
+    container_name: ollama_container
+    build:
+      context: ./ollama
+      dockerfile: Dockerfile
+    ports:
+      - 11435:11434
+    volumes:
+      - chatbot-vol:/ollama
+    networks:
+      - test-net
+    entrypoint: [ "/usr/bin/bash", "pull-llama3.sh" ]
+    restart: unless-stopped
 
 
-  web:
-    container_name: model-api
+  backend:
+    container_name: backend_container
     build:
       context: ./backend
       dockerfile: Dockerfile
-    image: docker_test-web:latest
+    image: docker_backend:latest
     ports:
       - 8000:8000
     volumes:
