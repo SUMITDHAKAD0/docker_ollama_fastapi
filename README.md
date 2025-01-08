@@ -1,4 +1,4 @@
-# HEALTH MANAGEMENT SYSTEM
+# Setuo Docker with Ollama and FastAPI
 
 
 ## STEPS TO RUN
