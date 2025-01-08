@@ -32,7 +32,7 @@ class ChatGenerator:
         #     base_url="http://localhost:11434"
         # )
         # return ollama_llm, ollama_embedding
-        os.environ["GOOGLE_API_KEY"] = "AIzaSyAI1sh_VTt7WUSrZ8UX4T4yRxRoEcaXNvg"
+        os.environ["GOOGLE_API_KEY"] = "Gemini-API-Key"
         gemini_embeddings = GoogleGenerativeAIEmbeddings(
                                 model="models/text-embedding-004",
                                 task_type="retrieval_document"
